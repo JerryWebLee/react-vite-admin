@@ -3,9 +3,11 @@ import { initShaders } from "../lib/cuon-utils.js";
 
 // 顶点着色器
 const VSHADER_SOURCE = `
+  attribute vec4 a_Position; // 顶点位置
+  attribute float a_PointSize; // 顶点颜色
   void main() {
-    gl_Position = vec4(0.0, 0.6, 0.0, 1.0); // 设置顶点坐标
-    gl_PointSize = 100.0; // 设置点的大小
+    gl_Position = a_Position; // 设置顶点坐标
+    gl_PointSize = a_PointSize; // 设置点的大小
   }
 `;
 
@@ -20,6 +22,10 @@ export default function SubNav1() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
+  // arrribute 变量是顶点着色器中的变量，用于接收顶点数据，传输与顶点相关的数据
+  // arrribute被用来从外部传递数据到顶点着色器，只有顶点着色器可以使用它
+  // uniform 变量是顶点着色器和片段着色器中的变量，用于接收全局数据，顶点无关数据
+  // varying 变量是顶点着色器和片段着色器之间传递数据的变量
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -55,6 +61,16 @@ export default function SubNav1() {
       console.error("Failed to initialize shaders.");
       return;
     }
+
+    const a_position = gl.getAttribLocation(gl.program, "a_Position");
+    const a_pointSize = gl.getAttribLocation(gl.program, "a_PointSize");
+    if (a_position < 0 || a_pointSize < 0) {
+      console.error("Failed to get attribute location.");
+      return;
+    }
+
+    gl.vertexAttrib3f(a_position, 0.0, 1.0, 0.0); // 设置顶点位置
+    gl.vertexAttrib1f(a_pointSize, 100.0); // 设置点的大小
 
     // 指定清空缓冲区，可以是颜色缓冲区、深度缓冲区、模板缓冲区等
     gl.clearColor(1.0, 1.0, 1.0, 1.0);

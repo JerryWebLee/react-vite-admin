@@ -49,11 +49,23 @@ const items: MenuProps["items"] = [
     children: [
       {
         key: ROUTE_PATHS.subMenu1,
-        label: <Link to={ROUTE_PATHS.subMenu1}>二级菜单-1</Link>,
+        label: <Link to={ROUTE_PATHS.subMenu1}>webgl-clearColor</Link>,
       },
       {
         key: ROUTE_PATHS.subMenu2,
-        label: <Link to={ROUTE_PATHS.subMenu2}>二级菜单-2</Link>,
+        label: <Link to={ROUTE_PATHS.subMenu2}>webgl-绘制一个点</Link>,
+      },
+      {
+        key: ROUTE_PATHS.subMenu3,
+        label: <Link to={ROUTE_PATHS.subMenu3}>webgl-变量绘制点</Link>,
+      },
+      {
+        key: ROUTE_PATHS.subMenu4,
+        label: <Link to={ROUTE_PATHS.subMenu4}>webgl-鼠标点击绘制点</Link>,
+      },
+      {
+        key: ROUTE_PATHS.subMenu5,
+        label: <Link to={ROUTE_PATHS.subMenu5}>webgl-</Link>,
       },
     ],
   },

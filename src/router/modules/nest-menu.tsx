@@ -20,8 +20,8 @@ export const nestMenuRoute: RouteObject = {
       }),
       HydrateFallback: ProgressBar,
       handle: {
-        title: "二级菜单-1",
-        crumb: () => <Link to={ROUTE_PATHS.subMenu1}>二级菜单-1</Link>,
+        title: "webgl-clearColor",
+        crumb: () => <Link to={ROUTE_PATHS.subMenu1}>webgl-clearColor</Link>,
       },
     },
     {
@@ -31,8 +31,41 @@ export const nestMenuRoute: RouteObject = {
       }),
       HydrateFallback: ProgressBar,
       handle: {
-        title: "二级菜单-2",
-        crumb: () => <Link to={ROUTE_PATHS.subMenu2}>二级菜单-2</Link>,
+        title: "webgl-绘制一个点",
+        crumb: () => <Link to={ROUTE_PATHS.subMenu2}>webgl-绘制一个点</Link>,
+      },
+    },
+    {
+      path: ROUTE_PATHS.subMenu3,
+      lazy: async () => ({
+        Component: (await import("@/pages/nest-menu/sub-menu-3")).default,
+      }),
+      HydrateFallback: ProgressBar,
+      handle: {
+        title: "webgl-变量绘制点",
+        crumb: () => <Link to={ROUTE_PATHS.subMenu3}>webgl-变量绘制点</Link>,
+      },
+    },
+    {
+      path: ROUTE_PATHS.subMenu4,
+      lazy: async () => ({
+        Component: (await import("@/pages/nest-menu/sub-menu-4")).default,
+      }),
+      HydrateFallback: ProgressBar,
+      handle: {
+        title: "webgl-鼠标点击绘制点",
+        crumb: () => <Link to={ROUTE_PATHS.subMenu3}>webgl-鼠标点击绘制点</Link>,
+      },
+    },
+    {
+      path: ROUTE_PATHS.subMenu5,
+      lazy: async () => ({
+        Component: (await import("@/pages/nest-menu/sub-menu-5")).default,
+      }),
+      HydrateFallback: ProgressBar,
+      handle: {
+        title: "webgl-",
+        crumb: () => <Link to={ROUTE_PATHS.subMenu5}>webgl-</Link>,
       },
     },
   ],

@@ -26,7 +26,7 @@ export default tseslint.config({
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-unsafe-function-type": "off",
     "no-multiple-empty-lines": ["error", { max: 1 }], // 禁止多个空行
-    "no-console": process.env.NODE_ENV === "production" ? "error" : "warn",
+    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "warn",
     "simple-import-sort/exports": "error",
     "simple-import-sort/imports": [
